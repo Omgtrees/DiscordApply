@@ -1,0 +1,35 @@
+# @client.event 
+# async def on_member_join(member):
+#   print('pizza dog')
+#   if member.dm_channel:
+#     return
+
+#   print('pizza dog')
+#   await member.create_dm() 
+#   await member.dm_channel.send(f'sup, {client.name}! ')
+#   print(f'User DM sent:\n----------\nUser: {client.name}\n----------')
+
+# @client.event
+# async def on_ready():
+#   deniz = client.get_user(221431307421483019)
+#   print(deniz)
+#   # if not deniz.dm_channel:
+#   await deniz.create_dm() 
+#   await deniz.dm_channel.send('https://i.imgur.com/fJCZbGQ.png')
+
+@client.event 
+async def on_ready():
+  deniz = client.get_user(250829133439827968)
+  print(deniz)
+  messages = await deniz.history().flatten()
+  for message in messages:
+    print(message.content)
+
+@client.event
+async def on_message(message):
+#  deniz = client.get_user(message.author.id)
+  deniz = message.author
+
+  if message.content.startswith('!porn'):
+    await deniz.create_dm() 
+    await deniz.dm_channel.send('https://i.imgur.com/c1ysIRD.jpg')
