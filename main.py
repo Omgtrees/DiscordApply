@@ -17,11 +17,7 @@ async def on_member_join(member):
   await member.dm_channel.send('IGN:')
   member.fetch_message()
 
-@client.event
-async def on_message(message):
   
-
-
 
   
 
