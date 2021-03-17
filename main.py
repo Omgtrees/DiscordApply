@@ -42,5 +42,6 @@ async def on_message(message):
     print (APPLICANT_DATA.items())
 
  # if message.channel is discord.DMchannel
+ #t
 
 client.run(os.getenv('TOKEN'))
