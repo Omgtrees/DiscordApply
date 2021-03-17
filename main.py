@@ -7,16 +7,16 @@ intents.members = True
 
 client = discord.Client(intents=intents)
 
-APPLICANT_TABLE = {
-  "3452345": {
-    "ign"
-  }
-}
+# APPLICANT_TABLE = {
+#   "3452345": {
+#     "ign"
+#   }
+# }
 
 APPLICANT_DATA = {
-  "ign": "",
-  "age": "",
-  "reason": ""
+  "ign": [],
+  "age": [],
+  "reason": []
 }
 
 #id = client.get_guild(818285299578175548)
@@ -37,11 +37,10 @@ async def on_member_join(member):
 async def on_message(message):
   if message.author.id is client.user.id:
     return
-  if message.channel is discord.DMChannel:
-    if APPLICANT_TABLE[message.author.id].reason == "":  # if there is no reason
-      APPLICANT_TABLE[message.author.id].reason = message.content
-
-  print (message.content)
+  APPLICANT_DATA["ign"].append(message.content)
+  APPLICANT_DATA["age"].append(message.content)
+  APPLICANT_DATA["reason"].append(message.content)
+  print (APPLICANT_DATA.items())
 
 
 client.run(os.getenv('TOKEN'))

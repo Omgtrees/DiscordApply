@@ -33,3 +33,21 @@ async def on_message(message):
   if message.content.startswith('!porn'):
     await deniz.create_dm() 
     await deniz.dm_channel.send('https://i.imgur.com/c1ysIRD.jpg')
+
+
+
+NEW STUFF
+
+
+@client.event
+async def on_message(message):
+  if message.author.id is client.user.id:
+    return
+  APPLICANT_DATA["ign"].append(message.content)
+  print(message.content)  
+#   if message.channel is discord.DMChannel:
+# #    if APPLICANT_DATA[message.author.id].ign == "":  # if there is no ign
+#     APPLICANT_DATA["ign"].append(message.content)
+#     print(message.content)
+#  #  APPLICANT_DATA[message.author.id].ign = message.content
+  print (APPLICANT_DATA.items())
