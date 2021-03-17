@@ -37,10 +37,10 @@ async def on_member_join(member):
 async def on_message(message):
   if message.author.id is client.user.id:
     return
-  APPLICANT_DATA["ign"].append(message.content)
-  APPLICANT_DATA["age"].append(message.content)
-  APPLICANT_DATA["reason"].append(message.content)
-  print (APPLICANT_DATA.items())
+  if isinstance(message.channel, discord.channel.DMChannel):
+    APPLICANT_DATA["ign"].append(message.content)
+    print (APPLICANT_DATA.items())
 
+ # if message.channel is discord.DMchannel
 
 client.run(os.getenv('TOKEN'))
